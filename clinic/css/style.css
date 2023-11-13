@@ -1,0 +1,878 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: 'PT Sans Caption';
+  src: local('PT Sans Caption Regular'), local('PT-Sans-Caption-Regular'),
+    url('../fonts/PTSans-Caption.woff') format('woff'),
+    url('../fonts/PTSans-Caption.woff2') format('woof2');
+  font-style: normal;
+  line-height: normal;
+}
+
+@font-face {
+  font-family: 'PT Sans Caption Bold';
+  src: local('PT Sans Caption Bold'), local('PT-Sans-Caption-Bold'),
+    url('../fonts/PTSans-CaptionBold.woff') format('woff'),
+    url('../fonts/PTSans-CaptionBold.woff2') format('woof2');
+  font-style: normal;
+  line-height: normal;
+}
+
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --text-color: #364844;
+  --bg-color: var(--color-white);
+}
+
+body {
+  min-width: 375px;
+  font-family: 'PT Sans Caption', sans-serif;
+  background-color: var(--bg-color, #fff);
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  background-color: #0DBC91;
+  cursor: pointer;
+  padding: 11px 24px;
+  border: 1px solid #0DBC91;
+  border-radius: 50px;
+  font-weight: 400px;
+  font-size: 14px;
+  color: var(--bg-color, #fff);
+  line-height: 21px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #00D29F;
+  border: 1px solid #00D29F;
+}
+
+.btn:active {
+  background-color: #00D29F;
+  border: 1px solid #00D29F;
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  max-width: 1320px;
+  width: 100%;
+  padding: 0 90px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'PT Sans Caption Bold';
+  margin: 0;
+  font-weight: 700px;
+  font-size: 48px;
+  color: var(--text-color, #364844);
+}
+
+.descr {
+  margin: 0;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color, #364844);
+}
+
+/* .navbar */
+.navbar {
+  display: none;
+}
+
+.menu {
+  display: none;
+}
+
+.navbar {
+  z-index: 10;
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  background: #F6F6F6;
+}
+
+.navbar__wrap {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* header */
+.header__container {
+  flex-direction: column;
+}
+
+.header__content {
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.header__logo {
+  display: block;
+  margin-right: 21px;
+}
+
+.header__address {
+  width: 100%;
+  padding-left: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__city {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.header__street {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #868686;
+}
+
+.header__contacts {
+  align-items: center;
+}
+
+.header__icon {
+  margin-right: 9px;
+}
+
+.header__tel {
+  margin-right: 35px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color, #364844);
+  transition: color 0, 3s ease-in-out;
+}
+
+.header__tel:hover {
+  color: #1FA181;
+}
+
+.container__nav {
+  max-width: 100%;
+  background-color: #1FA181;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav__list {
+  list-style: none;
+}
+
+.nav__item:not(:last-child) {
+  margin-right: 31px;
+}
+
+.nav__link {
+  position: relative;
+  font-weight: 400px;
+  font-size: 16px;
+  color: var(--color-white, #fff);
+  transition: color 0.3s ease-in-out;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  border: #FFF solid 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav__link:focus::after {
+  opacity: 1;
+}
+
+.nav__link:hover {
+  border-bottom: #FFF solid 2px;
+}
+
+.nav__link:active {
+  border-bottom: #FFF solid 2px;
+}
+
+/* .about */
+.about {
+  background-color: #F8FBFA;
+  min-height: 532px;
+  background-image: url(../img/clinic-img1.jpg);
+  background-size: 950px 532px;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.about__content {
+  background: #F8FBFA;
+  min-height: 533px;
+  max-width: 410px;
+  padding-top: 150px;
+  padding-bottom: 53px;
+  padding-right: 20px;
+}
+
+.about__title {
+  font-size: 36px;
+  margin-bottom: 14px;
+  line-height: 45px;
+}
+
+/* .services */
+.services {
+  padding-top: 100px;
+  padding-bottom: 88px;
+}
+
+.services__container {
+  width: 90%;
+  padding: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.services__card {
+  justify-content: space-between;
+  background-color: #E2F0EF;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.card__content {
+  padding-left: 85px;
+  padding-top: 58px;
+}
+
+.card__img {
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(5% 0, 100% 0%, 100% 100%, 22% 100%);
+}
+
+.card__title {
+  font-size: 38px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card__subtitle {
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.card__list {
+  padding-left: 17px;
+  margin-bottom: 33px;
+}
+
+.card__item::marker {
+  color: #1FA181;
+  font-size: 21px;
+}
+
+.card__item {
+  margin: 0;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--text-color, #364844);
+}
+
+.card__descr {
+  margin-bottom: 26px;
+  font-size: 20px;
+  line-height: normal;
+}
+
+.card__price {
+  padding-left: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #868686;
+  text-decoration-line: line-through;
+}
+
+.card__buttons {
+  padding-bottom: 42px;
+}
+
+.card__button {
+  padding: 11px 58px;
+  margin-right: 14px;
+}
+
+.card__btn {
+  padding: 11px 58px;
+  background-color: transparent;
+  color: #0DBC91;
+  transition: color, 0.3s, ease-in-out;
+}
+
+.card__btn:hover {
+  color: var(--bg-color, #fff);
+  border: 1px solid #0DBC91;
+  background: #0DBC91;
+}
+
+.card__btn:active {
+  color: var(--bg-color, #fff);
+  border: 1px solid #0DBC91;
+  background: #0DBC91;
+}
+
+.boxnav {
+  justify-content:center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.counter {
+  padding: 0 36px;
+  text-align: center;
+  font-size: 18px;
+  color: #364844;
+}
+
+.prev, .next {
+  cursor: pointer;
+}
+
+.boxnav__svg {
+  fill: #E1E1E1;
+  transition: fill 0.3s ease-in-out;
+}
+
+.boxnav__svg:hover {
+  fill: #0DBC91;
+}
+
+.boxnav__svg:active {
+  fill: #0DBC91;
+}
+
+/* .footer */
+.footer {
+  background-color: #08664F;
+  padding-top: 51px;
+  padding-bottom: 59px;
+}
+
+.footer__container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo img {
+  margin-right: 40px;
+  display: block;
+}
+
+.social__list {
+  list-style: none;
+}
+
+.social__item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.form {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+}
+
+.form-content {
+  max-width: 600px;
+  min-height: 100%;
+  background: rgba(69, 146, 127, 0.90);
+  backdrop-filter: blur(2px);
+  padding: 48px 30px;
+  border-radius: 5px;
+  color: var(--color-white);
+}
+
+.form-content h2 {
+  margin: 0;
+  margin-bottom: 25px;
+  font-size: 25px;
+  color: var(--color-white);
+}
+
+.close-form-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 65px;
+  line-height: 30px;
+}
+
+.form__group {
+  max-width: 370px;
+  margin: 0;
+  text-align: left;
+  color: #FFF;
+}
+
+.form__input,
+.form__textarea {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form__button {
+  color: #1FA181;
+  background-color: #F6F6F6;
+  color: #0DBC91;
+  transition: background-color color, 0.3s, ease-in-out;
+}
+
+.form__button:hover {
+  color: var(--bg-color, #fff);
+  border: 1px solid #0DBC91;
+  background: #0DBC91;
+}
+
+.form__button:active {
+  color: var(--bg-color, #fff);
+  border: 1px solid #0DBC91;
+  background: #0DBC91;
+}
+
+/* @media */
+@media (max-width: 1600px) {
+  .about {
+    min-height: 479px;
+    background-size: 855px 478px;
+  }
+
+  .about__content {
+    min-height: 479px;
+  }
+}
+
+@media (max-width: 1230px) {
+  .container {
+    padding: 0 50px;
+  }
+
+  .btn {
+    padding: 11px 29px;
+    font-size: 14px;
+  }
+
+  .about {
+    min-height: 332px;
+    background-size: 570px 332px;
+  }
+
+  .about__content {
+    min-height: 332px;
+    padding-top: 45px;
+    padding-bottom: 53px;
+  }
+
+  .about__title {
+    font-size: 30px;
+  }
+
+  .services {
+    padding-top: 49px;
+    padding-bottom: 91px;
+  }
+
+  .services__container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .card__content {
+    padding-top: 45px;
+  }
+
+  .card__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 980px) {
+  .container {
+    padding: 0 17px;
+  }
+
+  .descr {
+    font-size: 14px;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .header__city {
+    display: flex;
+    justify-content: end;
+  }
+
+  .header__tel {
+    margin-right: 0;
+  }
+
+  .services__container {
+    width: 90%;
+    padding: 0;
+  }
+
+  .services__card {
+    flex-direction: column-reverse;
+    border-radius: 5px;
+  }
+
+  .card__content {
+    padding: 45px;
+  }
+
+  .card__item {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .card__descr {
+    margin-bottom: 28px;
+    font-size: 18px;
+  }
+
+  .card__price {
+    font-size: 16px;
+  }
+
+  .card__buttons {
+    padding-bottom: 20px;
+  }
+
+  .card__img {
+    clip-path: none;
+  }
+
+  .about {
+    min-height: 288px;
+    background-image: url(../img/clinic-img1.jpg);
+    background-size: auto 288px;
+    background-position: top right;
+  }
+
+  .about__content {
+    min-height: 288px;
+    max-width: 350px;
+    padding-top: 35px;
+  }
+
+  .about__title {
+    font-size: 26px;
+    margin-bottom: 9px;
+  }
+
+  .navbar {
+    display: flex;
+  }
+
+  .navbar__wrap .menu {
+    display: none;
+  }
+
+  .navbar__wrap .logo {
+    display: block;
+    margin: 0;
+    position: absolute;
+    left: 93px;
+    top: 23px;
+  }
+
+  .hamb {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamb__field {
+    cursor: pointer;
+  }
+
+  .bar {
+    display: block;
+    width: 36px;
+    height: 4px;
+    background-color: #1FA181;
+    transition: 0.3s;
+  }
+
+  .bar:not(:last-child) {
+    margin-bottom: 6px;
+  }
+
+  .popup {
+    position: fixed;
+    top: 65px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(69, 146, 127, 0.90);
+    backdrop-filter: blur(2px);
+    z-index: 100;
+    display: flex;
+    transition: 0.3s ease-in-out;
+  }
+
+  .popup.open {
+    left: 0;
+  }
+
+  .popup .menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 38px 19px;
+    overflow: auto;
+    list-style: none;
+  }
+
+  .popup .menu>li {
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .nav__button {
+    padding-top: 29px;
+  }
+
+  .nav__btn {
+    color: #1FA181;
+    border: 1px solid #F6F6F6;
+    background-color: #F6F6F6;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  .nav__btn:hover {
+    color: #fff;
+    border: 1px solid #0DBC91;
+    background-color: #0DBC91;
+  }
+
+  .nav__btn:active {
+    color: #fff;
+    border: 1px solid #0DBC91;
+    background-color: #0DBC91;
+  }
+
+  .hamb__field.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamb__field.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .hamb__field.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  body.noscroll {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 800px) {
+  .about {
+    min-height: 350px;
+    background-image: url(../img/clinic-img.png);
+    background-size: 800px auto;
+    background-position: top;
+  }
+
+  .about__container {
+    padding: 0;
+    padding-top: 350px;
+  }
+
+  .about__content {
+    max-width: 100%;
+    padding: 0 17px;
+    padding-top: 35px;
+  }
+
+  .about__title {
+    margin-bottom: 5px;
+    max-width: 350px;
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+  .about__descr {
+    max-width: 380px;
+    line-height: 22px;
+  }
+
+  .card__content {
+    padding: 23px;
+  }
+
+  .card__title {
+    margin-bottom: 5px;
+    font-size: 26px;
+  }
+
+  .card__subtitle {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .footer__container {
+    align-items: baseline;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .nav__list {
+    flex-direction: column;
+  }
+
+  .footer__logo {
+    margin-bottom: 31px;
+  }
+
+  .nav__item {
+    padding-bottom: 9px;
+  }
+
+  .footer__social {
+    margin: 0;
+    position: absolute;
+    right: 25px;
+    top: 0;
+    font-style: normal;
+  }
+
+  .social__icon {
+    width: 24px;
+    height: 23px;
+  }
+}
+
+@media (max-width: 650px) {
+  .about {
+    background-image: url(../img/clinic-img.png);
+    background-size: auto 288px;
+  }
+
+  .about__container {
+    padding-top: 288px;
+  }
+
+  .about__content {
+    padding: 0 10%;
+    padding-top: 35px;
+  }
+}
+
+@media (max-width: 375px) {
+  .about {
+    background-image: url(../img/clinic-img2.png);
+    background-size: auto 288px;
+  }
+
+  .about__container {
+    padding-top: 288px;
+  }
+
+  .about__content {
+    padding: 0 17px;
+    padding-top: 35px;
+  }
+
+  .header__tel {
+    margin-right: 0;
+  }
+
+  .services {
+    padding-top: 24px;
+  }
+
+  .card__descr {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .boxnav {
+    padding-top: 15px;
+  }
+
+  .services {
+    padding-bottom: 34px;
+  }
+
+  .footer {
+    padding-top: 42px;
+  }
+}
